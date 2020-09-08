@@ -41,9 +41,9 @@ class ramapriya_elementviewer extends CModule
 
     function DoUninstall()
     {
-        ModuleManager::unRegisterModule($this->MODULE_ID);
         $this->UnInstallDB();
         $this->UnInstallEvents();
+        ModuleManager::unRegisterModule($this->MODULE_ID);
 
     }
 
