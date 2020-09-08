@@ -54,7 +54,12 @@ class ramapriya_elementviewer extends CModule
 
     function InstallDB()
     {
-
+        Loader::includeModule($this->MODULE_ID);
+        Option::set(
+            $this->MODULE_ID,
+            'slider',
+            Ramapriya\ElementViewer\Viewer::getModulePath(true) .'/slider/'
+        );
     }
 
     function UnInstallDB()
