@@ -16,7 +16,21 @@ Loc::loadMessages(__FILE__);
 Loader::includeModule($module_id);
 
 
-$aTabs = ElementViewer\Configurator::getModuleOptionsTabs();
+$aTabs = [
+    [
+        'DIV' => 'edit1',
+        'TAB' => Loc::getMessage('EV_OPTIONS_TAB_SETTINGS'),
+        'TITLE' => Loc::getMessage('EV_OPTIONS_TAB_SETTINGS'),
+        'OPTIONS' => [
+            [
+                'slider',
+                Loc::getMessage('EV_OPTIONS_SLIDER_LINK'),
+                ElementViewer\Configurator::getSliderURI(),
+                ['text', 40]
+            ]
+        ]
+    ]
+];
 
 if ($request->isPost() && $request['Update'] && check_bitrix_sessid())
 {
@@ -50,7 +64,7 @@ $tabControl->Begin();
 ?>
 
 <form action="<?=$request->getRequestedPage()?>?mid=<?=htmlspecialcharsbx($request['mid'])
-?>&lang=<?=$request['lang']?>" method="POST" name="<?=ElementViewer\Viewer::getModuleSettingsParam()?>">
+?>&lang=<?=$request['lang']?>" method="POST" name="<?=ElementViewer\Configurator::getModuleSettingsParam()?>">
 
     <?php
 
