@@ -23,15 +23,22 @@ ElementViewer.init = function (sliderUrl) {
 
 }
 
-ElementViewer.pattern = '/lists/(\\d+)/element/0/(\\d+)';
+ElementViewer.pattern = '/lists/(\\d+)/element/(\\d+)/(\\d+)';
 
 ElementViewer.extractListData = function (url) {
     let match = url.match(this.pattern);
     if(match) {
-        return {
+
+        let result = {
             list_id: Number(match[1]),
-            element_id: Number(match[2])
+            element_id: Number(match[3])
         };
+
+        if(Number(match[2]) > 0) {
+            result.section_id = Number(match[2]);
+        }
+
+        return result;
     }
 }
 
