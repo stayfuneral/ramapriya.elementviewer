@@ -15,7 +15,7 @@ ElementViewer.init = function (sliderUrl) {
             if(listData !== undefined) {
                 child.addEventListener('click', (e) => {
                     e.preventDefault();
-                    this.openSlider(sliderUrl, listData.list_id, listData.element_id);
+                    this.openSlider(sliderUrl, listData.list_id, listData.element_id, listData.section_id);
                 })
             }
         }
