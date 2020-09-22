@@ -42,11 +42,15 @@ ElementViewer.extractListData = function (url) {
     }
 }
 
-ElementViewer.openSlider = function (sliderUri, listId, elementId) {
+ElementViewer.openSlider = function (sliderUri, listId, elementId, sectionId = null) {
 
     let sliderParams = {
         list_id: listId,
         element_id: elementId
+    }
+
+    if(sectionId !== null) {
+        sliderParams.section_id = sectionId
     }
 
     return BX.SidePanel.Instance.open(sliderUri, {
